@@ -148,7 +148,16 @@ cd ~/SensorKinect/Platform/Linux/Redist/Sensor-Bin-Dev-Linux-Arm-v5.1.2.1/
 sudo ./install.sh
 ```
 
-​	
+	### Create_ap
 
-​	
+```shell
+git clone https://github.com/oblique/create_ap.git
+cd create_ap
+sudo make install
+sudo apt-get install util-linux procps hostapd iproute2 iw haveged dnsmasq
+```
 
+
+
+-   具体开启方法为`sudo create_ap -- ieee80211ac --freq-band 5 wlan0 eth0 raspberry 123456789`
+-   在`/etc/rc.local`中加入`sudo create_ap -- ieee80211ac --freq-band 5 wlan0 eth0 raspberry 123456789 &`就可以开机自启动。
